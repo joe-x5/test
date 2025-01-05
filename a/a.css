@@ -1,0 +1,248 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container styling for full-screen fit */
+#container {
+    width: 100%; /* Full screen width */
+    height: 320px; /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: none; /* Removed unnecessary borders */
+    box-shadow: none; /* Removed shadow for simplicity */
+    overflow: hidden;
+    position: relative;
+    padding: 0; /* No padding */
+    margin: 0; /* No margin */
+}
+
+/* Header styling for a consistent top bar */
+#header {
+    background-color: #00796b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0; /* No rounded corners */
+    z-index: 10;
+}
+
+/* Chat container styling */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-top: -10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+#join-container {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 100px;
+    box-sizing: border-box;
+}
+/* Chat box styling to fit the full width */
+#chat-box {
+    width: 100%; /* Full width */
+    height: 250px; /* Adjusted height for 240x320 screen */
+    border: 1px solid #00796b;
+    overflow-y: auto;
+    padding: 10px;
+    margin: 0; /* No margin */
+    box-sizing: border-box;
+    background-color: #f1f8e9;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    position: relative;
+    margin-top: 50px; /* Adjusted margin */
+    margin-bottom: 20px;
+    
+}
+
+/* Container for messages */
+#messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Typing indicator styling */
+#typing-indicator {
+    color: black;
+    font-style: italic;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px 0;
+    background-color: #fffdd0;
+    width: auto;
+    max-width: 200px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+/* Input and button styling for smaller screens */
+
+
+#message-input {
+  width: calc(90% - 20px); /* Full width with slight padding */
+  padding: 8px;
+  margin-bottom: 20px; /* Space between inputs and buttons */
+  border: 1px solid #00796b;
+  background-color: #e8f5e9;
+  border-radius: 5px;
+  font-size: 14px;
+ 
+}
+
+#join-code-input {
+  width: calc(90% - 20px); /* Full width with slight padding */
+  padding: 8px;
+  margin-bottom: 10px; /* Space between inputs and buttons */
+  border: 1px solid #00796b;
+  background-color: #e8f5e9;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+#generate-code-btn,
+#join-chat-btn,
+#world-chat-btn {
+  text-align: center;
+  padding: 6px;
+  background-color: #00838f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 5px auto; /* Center buttons and add margin */
+  width: 90%; /* Fit within smaller screens */
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+#leave-chat-btn:hover,
+#generate-code-btn:hover,
+#join-chat-btn:hover,
+#world-chat-btn:hover {
+    background-color: #004d40;
+}
+
+/* Button focus effect */
+#send-btn:focus,
+#image-input-btn:focus,
+#leave-chat-btn:focus,
+#generate-code-btn:focus,
+#join-chat-btn:focus,
+#world-chat-btn:focus {
+    border: 2px solid yellow;
+    outline: none;
+}
+
+/* Text styling inside chat box for clarity */
+p {
+    margin: 5px 0;
+    color: #00796b;
+    font-weight: normal;
+}
+
+/* Hide join and chat containers by default */
+#join-container,
+#chat-container {
+    display: none;
+}
+
+/* Image container for 50x50 images */
+.image-container {
+    width: 80px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Wrapper for message input and buttons */
+.message-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+}
+
+/* Input styling with button positions */
+#message-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #00796b;
+    background-color: #e8f5e9;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Image button */
+#image-input-btn {
+    width: 40px;
+    height: 40px;
+    background: url('https://cdn-icons-png.freepik.com/256/10389/10389182.png') center/cover no-repeat;
+    border: 1px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 25px;
+}
+
+#image-input-btn:hover {
+    transform: rotate(20deg);
+}
+
+/* Send button */
+#send-btn {
+    width: 40px;
+    height: 40px;
+    background: url('https://cdn-icons-png.freepik.com/256/8026/8026329.png') center/cover no-repeat;
+    border-radius: 50%;
+    background-color: #00796b;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+/* Hidden File Input */
+#image-input {
+    display: none;
+}
