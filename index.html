@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JioPhone Torch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>JioPhone Torch App</h1>
+    <p>Long press the Up button (2 seconds) to toggle the flashlight.</p>
+    <p>Long press the 0 button (2 seconds) to open the browser.</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let flashlightState = false;
+            let pressTimerUp, pressTimerZero;
+
+            // Toggle flashlight
+            const toggleFlashlight = () => {
+                if (navigator.mozSettings) {
+                    const flashlight = navigator.mozSettings.createLock();
+                    flashlight.set({ 'device.flashlight.enabled': !flashlightState })
+                        .then(() => {
+                            flashlightState = !flashlightState;
+                            alert(`Flashlight turned ${flashlightState ? 'ON' : 'OFF'}.`);
+                        })
+                        .catch(err => console.error('Error toggling flashlight:', err));
+                } else {
+                    alert('Flashlight control is not supported on this device.');
+                }
+            };
+
+            // Open KaiOS browser app
+            const openBrowser = () => {
+                if (navigator.mozApps && navigator.mozApps.mgmt) {
+                    navigator.mozApps.mgmt.getAll().then(apps => {
+                        const browserApp = apps.find(app => app.manifest.role === 'system' && app.manifest.name === 'Browser');
+                        if (browserApp) {
+                            browserApp.launch();
+                            alert('Browser app launched.');
+                        } else {
+                            alert('Browser app not found.');
+                        }
+                    }).catch(err => console.error('Error opening browser:', err));
+                } else {
+                    alert('Opening the browser is not supported on this device.');
+                }
+            };
+
+            // Long press detection for Up button
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowUp') {
+                    pressTimerUp = setTimeout(toggleFlashlight, 2000); // Long press (2 seconds) for Up button
+                }
+                if (event.key === '0') {
+                    pressTimerZero = setTimeout(openBrowser, 2000); // Long press (2 seconds) for 0 button
+                }
+            });
+
+            window.addEventListener('keyup', (event) => {
+                if (event.key === 'ArrowUp') {
+                    clearTimeout(pressTimerUp); // Clear timer if the button is released early
+                }
+                if (event.key === '0') {
+                    clearTimeout(pressTimerZero); // Clear timer if the button is released early
+                }
+            });
+        });
+    </script>
+</body>
+</html>
