@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "name": "PWA Manager",
+  "description": "A Full Featured PWA Manager By shifat100. Add And Remove Link Toogle Cursor,Web Client, Link To Kaios Client, Save Links, Quick Access, Free To Use, Add Unlimited Links, PWA Browser, All Type Permission Support, and many more...",
+  "launch_path": "/index.html",
+  "icons": {
+    "56": "/icons/ic-56.png",
+    "112": "/icons/ic-112.png",
+    "128": "/icons/ic-128.png"
+  },
+  "fullscreen": false,
+  "developer": {
+    "name": "shifat100",
+    "url": "http://shifat100.xtgem.com"
+  },
+  "locales": {
+    "en-US": {
+      "name": "PWA Manager",
+      "subtitle": "Browser Your Hosted App",
+      "description": "A Full Featured PWA Manager By shifat100. Add And Remove Link Toogle Cursor, Web Client, Link To Kaios Client, Save Links, Quick Access, Free To Use, Add Unlimited Links, PWA Browser, All Type Permission Support, and many more..."
+    }
+  },
+  "dependencies": {
+    "ads-sdk": "1.5.8"
+  },
+  "default_locale": "en-US",
+  "cursor": false,
+  "type": "privileged",
+  "permissions": {
+    "device-storage:sdcard": {
+      "access": "readwrite"
+    },
+    "device-storage:sdcard1": {
+      "access": "readwrite"
+    },
+    "spatialnavigation-app-manage": {},
+    "alarms": {},
+    "audio-capture": {},
+    "audio-channel-alarm": {},
+    "audio-channel-content": {},
+    "audio-channel-normal": {},
+    "audio-channel-notification": {},
+    "browser": {},
+    "camera": {},
+    "contacts": {
+      "access": "readwrite"
+    },
+    "desktop-notification": {},
+    "fmradio": {},
+    "geolocation": {},
+    "input": {},
+    "mobileid": {},
+    "mobilenetwork": {},
+    "moz-firefox-accounts": {},
+    "nfc": {},
+    "nfc-write": {},
+    "nfc-read": {},
+    "push": {},
+    "speech-recognition": {},
+    "systemXHR": {},
+    "tcp-socket": {},
+    "video-capture": {}
+  }
+}
