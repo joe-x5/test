@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" media="all">
+</head>
+
+<body>
+    <div class="header" id="header"> Ads Manager</div>
+    <div class="loader" id="loader">
+        <div class="loading">loading</div>
+    </div>
+    <div class="content" id="app"></div>
+    <div class="footer">
+        <div class="footerelement"></div>
+        <div class="footerelement">OK</div>
+        <div class="footerelement">Exit</div>
+    </div>
+    <script src="https://static.kaiads.com/ads-sdk/ads-sdk.v5.min.js"></script>
+    <script src="kaiads.v5.min.js"></script>
+    <script>
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    getKaiAd({
+        publisher: '58d21092-87f8-47c3-883d-fcd67eb318d8',
+        app: 'pwa_manager',
+        slot: 'pwa_manager',
+        onerror: err => console.error('Custom catch:', err),
+        onready: ad => {
+            ad.call('display');
+        }
+    });
+});
+
+
+document.body.addEventListener('keyup', () => {
+    getKaiAd({
+        publisher: '58d21092-87f8-47c3-883d-fcd67eb318d8',
+        app: 'pwa_manager',
+        slot: 'pwa_manager',
+        onerror: err => console.error('Custom catch:', err),
+        onready: ad => {
+            ad.call('display');
+        }
+    });
+});
+
+</script>
+</body>
+
+</html>
